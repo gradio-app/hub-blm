@@ -8,6 +8,7 @@ import numpy as np
 '''
 	nms.py: CPU implementation of non maximal supression modified from Ross's code.
 	Authors : svp
+
 	Modified from https://github.com/rbgirshick/fast-rcnn/blob/master/lib/utils/nms.py
 	to accommodate a corner case which handles one box lying completely inside another.
 '''
@@ -50,10 +51,12 @@ def nms(dets, thresh):
 '''
     Extracts confidence map and box map from N (N=4 here)
 	channel input.
+
     Parameters:
     -----------
     confidence_map - (list) list of confidences for N channels
     hmap - (list) list of box values for N channels
+
     Returns
     -------
     nms_conf_map - (HXW) single channel confidence score map 
@@ -91,6 +94,7 @@ def extract_conf_points(confidence_map, hmap):
 
 '''
     Wrapper function to perform NMS
+
     Parameters:
     -----------
     confidence_map - (list) list of confidences for N channels
@@ -98,6 +102,7 @@ def extract_conf_points(confidence_map, hmap):
     wmap - (list) list of box values for N channels	
     dotmap_pred_downscale -(int) prediction scale
     thresh - (float) Threshold for NMS.
+
     Returns
     -------
     x, y - (list) list of x-coordinates and y-coordinates to keep
@@ -105,6 +110,7 @@ def extract_conf_points(confidence_map, hmap):
     h, w - (list) list of height and width of the corresponding x, y 
             points.
     scores - (list) list of confidence for h and w at (x, y) point.
+
 '''
 
 
