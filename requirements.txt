@@ -1,2 +1,2 @@
-torch
-pillow
+torch==1.6.0
+opencv-python==4.4.0.40
