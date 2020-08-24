@@ -5,9 +5,8 @@ import os
 import gradio as gr
 
 if not os.path.exists("weights/weights.pth"):
-    url = "https://drive.google.com/file/d/1DLItw5kHKbX81w60ybT8paVsjkY2Pj8_"
     output = 'weights/weights.pth'
-    file_id = '1DLItw5kHKbX81w60ybT8paVsjkY2Pj8_'
+    file_id = '1QbPwRXcrONMuBL_39gvnvGGsFCnNyjEm'
     download_file_from_google_drive(file_id, output)
 
 
@@ -26,8 +25,8 @@ def predict(img):
 
 thumbnail="images/screenshot.png"
 examples=[
-    ["images/blm-1.jpeg"],
     ["images/blm-2.jpg"],
+    ["images/blm-2.jpeg"],
 ]
 
 gr.Interface(predict, "image", "image", title="BLM Photo "
