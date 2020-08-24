@@ -24,7 +24,7 @@ def predict(img):
         network.predict_single_image(img, emoji, nms_thresh=0.25)
     return img_out
 
-thumbnail="images/screenshot.png"
+thumbnail="https://i.ibb.co/bzwSBzw/Screen-Shot-2020-08-24-at-7-05-36-AM.png"
 examples=[
     ["images/blm-2.jpg"],
     ["images/a.jpg"]
