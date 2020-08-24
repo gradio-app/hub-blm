@@ -27,7 +27,7 @@ def predict(img):
 thumbnail="images/screenshot.png"
 examples=[
     ["images/blm-2.jpg"],
-    ["images/blm-2.jpeg"],
+    ["images/a.jpg"]
 ]
 
 gr.Interface(predict, "image", "image", title="BLM Photo "
