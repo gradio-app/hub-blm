@@ -5,6 +5,7 @@ import os
 import gradio as gr
 
 if not os.path.exists("weights/weights.pth"):
+    os.mkdir("weights")
     output = 'weights/weights.pth'
     file_id = '1QbPwRXcrONMuBL_39gvnvGGsFCnNyjEm'
     download_file_from_google_drive(file_id, output)
