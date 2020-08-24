@@ -4,7 +4,7 @@ import torch.nn as nn
 import numpy as np
 import logging
 from utils_model import compute_boxes_and_sizes, get_upsample_output, get_box_and_dot_maps, get_boxed_img
-
+from time import time
 
 class LSCCNN(nn.Module):
     def __init__(self, name='scale_4', checkpoint_path=None, output_downscale=2,
@@ -193,8 +193,8 @@ class LSCCNN(nn.Module):
             image = cv2.resize(image, (image.shape[1]//16*16, image.shape[0]//16*16))
         img_tensor = torch.from_numpy(image.transpose((2, 0, 1)).astype(np.float32)).unsqueeze(0)
         with torch.no_grad():
-            # out = self.forward(img_tensor.cuda())
-            out = self.forward(img_tensor)
+            out = self.forward(img_tensor.cuda())
+            # out = self.forward(img_tensor)
         out = get_upsample_output(out, self.output_downscale)
         pred_dot_map, pred_box_map = get_box_and_dot_maps(out, nms_thresh, self.BOXES)
         img_out = get_boxed_img(image, emoji, pred_box_map, pred_box_map, pred_dot_map, self.output_downscale,

@@ -3,7 +3,7 @@ from model import LSCCNN
 from download_from_google import download_file_from_google_drive
 import os
 import gradio as gr
-
+from time import time
 if not os.path.exists("weights/weights.pth"):
     os.mkdir("weights")
     output = 'weights/weights.pth'
@@ -24,6 +24,7 @@ def predict(img):
         network.predict_single_image(img, emoji, nms_thresh=0.25)
     return img_out
 
+
 thumbnail="https://i.ibb.co/bzwSBzw/Screen-Shot-2020-08-24-at-7-05-36-AM.png"
 examples=[
     ["images/blm-2.jpg"],
@@ -36,3 +37,4 @@ gr.Interface(predict, "image", "image", title="BLM Photo "
                          "protesters. Faces will be covered with the "
                          "black fist emoji.", examples=examples,
              thumbnail=thumbnail).launch()
+
