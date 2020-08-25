@@ -38,6 +38,6 @@ gr.Interface(predict, "image", "image", title="BLM Photo "
                                               "Anonymization",
              description="Anonymize photos to protect BLM "
                          "protesters. Faces will be covered with the "
-                         "black fist emoji.", examples=examples,
+                         "black fist emoji. Model developed by the Stanford ML Group and LSC-CNN.", examples=examples,
              thumbnail=thumbnail).launch()
 
