@@ -13,6 +13,7 @@ if not os.path.exists("weights/weights.pth"):
 
 checkpoint_path = './weights/weights.pth'
 network = LSCCNN(checkpoint_path=checkpoint_path)
+network.cuda()
 network.eval()
 emoji = cv2.imread("images/blm_fist.png", -1)
 
@@ -24,11 +25,13 @@ def predict(img):
         network.predict_single_image(img, emoji, nms_thresh=0.25)
     return img_out
 
-
 thumbnail="https://i.ibb.co/bzwSBzw/Screen-Shot-2020-08-24-at-7-05-36-AM.png"
 examples=[
-    ["images/blm-2.jpg"],
-    ["images/a.jpg"]
+    ["images/1.png"],
+    ["images/2.png"],
+    ["images/3.png"],
+    ["images/4.png"],
+    ["images/5.png"]
 ]
 
 gr.Interface(predict, "image", "image", title="BLM Photo "
